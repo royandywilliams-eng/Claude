@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using ProjectSpecGUI.Core;
+using ProjectSpecGUI.UIScreens;
 
 namespace ProjectSpecGUI.UI
 {
@@ -22,11 +24,26 @@ namespace ProjectSpecGUI.UI
         private Button nextButton;
         private Button skipButton;
         private Label descriptionLabel;
+        private List<IWizardScreen> screens;
 
         public WizardPanel(ProjectConfiguration config)
         {
             this.configuration = config;
+            InitializeScreens();
             InitializeComponent();
+        }
+
+        private void InitializeScreens()
+        {
+            screens = new List<IWizardScreen>
+            {
+                new Screen1_ProjectType(configuration),
+                new Screen2_TechStack(configuration),
+                new Screen3_KeyFeatures(configuration),
+                new Screen4_UIUXRequirements(configuration),
+                new Screen5_PerformanceScalability(configuration),
+                new Screen6_DeploymentDevOps(configuration)
+            };
         }
 
         private void InitializeComponent()
@@ -131,31 +148,24 @@ namespace ProjectSpecGUI.UI
 
         private void LoadScreen(int screenNumber)
         {
+            // Unload previous screen
+            if (currentScreen < screens.Count)
+            {
+                screens[currentScreen].OnUnload();
+            }
+
             currentScreen = screenNumber;
             screenContainer.Controls.Clear();
 
-            // Create placeholder for each screen
-            Label screenLabel = new Label
+            // Load the actual screen
+            if (currentScreen < screens.Count)
             {
-                Text = $"Screen {screenNumber + 1} Content",
-                Dock = DockStyle.Top,
-                Height = 30,
-                BackColor = SystemColors.Highlight,
-                ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Segoe UI", 10F, FontStyle.Bold)
-            };
-            screenContainer.Controls.Add(screenLabel);
-
-            Label contentLabel = new Label
-            {
-                Text = $"Screen {screenNumber + 1} will be implemented in Phase 2",
-                Dock = DockStyle.Fill,
-                Padding = new Padding(10),
-                AutoSize = false,
-                TextAlign = ContentAlignment.TopLeft
-            };
-            screenContainer.Controls.Add(contentLabel);
+                IWizardScreen screen = screens[currentScreen];
+                Control screenControl = screen.GetScreenControl();
+                screenControl.Dock = DockStyle.Fill;
+                screenContainer.Controls.Add(screenControl);
+                screen.OnLoad();
+            }
 
             // Update header
             screenNumberLabel.Text = $"Step {screenNumber + 1} of 6";
@@ -210,6 +220,17 @@ namespace ProjectSpecGUI.UI
         {
             if (currentScreen < 5)
             {
+                // Validate current screen before proceeding
+                if (currentScreen < screens.Count && !screens[currentScreen].ValidateScreen())
+                {
+                    MessageBox.Show(
+                        screens[currentScreen].GetValidationError(),
+                        "Validation Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
                 LoadScreen(currentScreen + 1);
             }
         }
