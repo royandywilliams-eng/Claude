@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using ProjectSpecGUI.Core;
+using ProjectSpecGUI.UITabs;
 
 namespace ProjectSpecGUI.UI
 {
@@ -16,6 +17,7 @@ namespace ProjectSpecGUI.UI
 
         private ProjectConfiguration configuration;
         private Dictionary<string, TabPage> tabPages = new Dictionary<string, TabPage>();
+        private Dictionary<string, IConfigurationTab> tabImplementations = new Dictionary<string, IConfigurationTab>();
 
         public ConfigurationTabs(ProjectConfiguration config)
         {
@@ -30,41 +32,52 @@ namespace ProjectSpecGUI.UI
             this.Font = new Font("Segoe UI", 9F);
             this.BackColor = SystemColors.Control;
 
+            // Initialize all 9 tab implementations
+            InitializeTabImplementations();
+
             // Create all 9 tabs (some may be hidden based on project type)
-            CreateTab("Project Details", 0);
-            CreateTab("Architecture & Design", 1);
-            CreateTab("Frontend Specifics", 2);
-            CreateTab("Backend Specifics", 3);
-            CreateTab("Database Design", 4);
-            CreateTab("Testing & Quality", 5);
-            CreateTab("Dependencies", 6);
-            CreateTab("Timeline & Constraints", 7);
-            CreateTab("Documentation", 8);
+            CreateTab("Project Details", new Tab1_ProjectDetails(configuration));
+            CreateTab("Architecture & Design", new Tab2_ArchitectureDesign(configuration));
+            CreateTab("Frontend Specifics", new Tab3_FrontendSpecifics(configuration));
+            CreateTab("Backend Specifics", new Tab4_BackendSpecifics(configuration));
+            CreateTab("Database Design", new Tab5_DatabaseDesign(configuration));
+            CreateTab("Testing & Quality", new Tab6_TestingQuality(configuration));
+            CreateTab("Dependencies", new Tab7_DependenciesIntegration(configuration));
+            CreateTab("Timeline & Constraints", new Tab8_TimelineConstraints(configuration));
+            CreateTab("Documentation", new Tab9_Documentation(configuration));
 
             UpdateTabVisibility();
         }
 
-        private void CreateTab(string name, int index)
+        private void InitializeTabImplementations()
+        {
+            tabImplementations["Project Details"] = new Tab1_ProjectDetails(configuration);
+            tabImplementations["Architecture & Design"] = new Tab2_ArchitectureDesign(configuration);
+            tabImplementations["Frontend Specifics"] = new Tab3_FrontendSpecifics(configuration);
+            tabImplementations["Backend Specifics"] = new Tab4_BackendSpecifics(configuration);
+            tabImplementations["Database Design"] = new Tab5_DatabaseDesign(configuration);
+            tabImplementations["Testing & Quality"] = new Tab6_TestingQuality(configuration);
+            tabImplementations["Dependencies"] = new Tab7_DependenciesIntegration(configuration);
+            tabImplementations["Timeline & Constraints"] = new Tab8_TimelineConstraints(configuration);
+            tabImplementations["Documentation"] = new Tab9_Documentation(configuration);
+        }
+
+        private void CreateTab(string name, IConfigurationTab tabImpl)
         {
             TabPage page = new TabPage
             {
                 Text = name,
-                Padding = new Padding(10),
+                Padding = new Padding(0),
                 BackColor = SystemColors.Control
             };
 
-            // Add placeholder content for each tab
-            Label placeholder = new Label
-            {
-                Text = $"{name} configuration\n\n(To be implemented in Phase 3)",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = SystemColors.GrayText,
-                Font = new Font("Segoe UI", 10F, FontStyle.Italic)
-            };
-            page.Controls.Add(placeholder);
+            // Add the actual tab content
+            Control tabControl = tabImpl.GetTabControl();
+            tabControl.Dock = DockStyle.Fill;
+            page.Controls.Add(tabControl);
 
             tabPages[name] = page;
+            tabImplementations[name] = tabImpl;
             this.TabPages.Add(page);
         }
 
@@ -85,7 +98,7 @@ namespace ProjectSpecGUI.UI
             ShowTab("Documentation");
 
             // Conditional tabs based on project type
-            if (projectType == "Web Application" || projectType == "Desktop Application")
+            if (projectType == "Web App" || projectType == "Desktop App")
             {
                 ShowTab("Frontend Specifics");
                 HideTab("Backend Specifics");
@@ -101,6 +114,12 @@ namespace ProjectSpecGUI.UI
             {
                 HideTab("Frontend Specifics");
                 ShowTab("Backend Specifics");
+                HideTab("Database Design");
+            }
+            else if (projectType == "Mobile App")
+            {
+                ShowTab("Frontend Specifics");
+                HideTab("Backend Specifics");
                 HideTab("Database Design");
             }
             else
@@ -139,6 +158,11 @@ namespace ProjectSpecGUI.UI
 
         protected void OnConfigurationChanged()
         {
+            // Call OnUnload for all tabs to save their state
+            foreach (var tabImpl in tabImplementations.Values)
+            {
+                tabImpl.OnUnload();
+            }
             ConfigurationChanged?.Invoke(this, EventArgs.Empty);
         }
     }
