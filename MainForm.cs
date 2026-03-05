@@ -170,11 +170,11 @@ namespace ProjectSpecGUI
             projectConfig.ProjectName = "My New Project";
             projectConfig.ProjectType = AppConstants.PROJECT_TYPES[0];
             projectConfig.PrimaryLanguage = AppConstants.LANGUAGES[0];
-            OnConfigurationChanged();
+            OnConfigurationChanged(null, EventArgs.Empty);
         }
 
         // Event handler for configuration changes
-        private void OnConfigurationChanged()
+        private void OnConfigurationChanged(object? sender, EventArgs e)
         {
             // Update preview panel in real-time
             if (previewPanel != null)
