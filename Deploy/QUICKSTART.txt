@@ -1,0 +1,205 @@
+================================================================================
+                    PROJECTSPEC GUI - QUICK START GUIDE
+================================================================================
+
+VERSION: 1.0.0 (Phases 1-5 Complete)
+RELEASE DATE: March 2026
+
+================================================================================
+1. RUN THE APPLICATION
+================================================================================
+
+Option A: Double-click Launch.bat (recommended)
+Option B: Double-click ProjectSpecGUI.exe directly
+Option C: Create a shortcut to ProjectSpecGUI.exe on your Desktop
+
+================================================================================
+2. GET YOUR CLAUDE API KEY
+================================================================================
+
+1. Visit: https://console.anthropic.com
+2. Sign in to your Anthropic account (create one if needed)
+3. Navigate to API Keys section
+4. Create a new API key
+5. Copy the key (starts with "sk-")
+
+================================================================================
+3. CONFIGURE CLAUDE API (FIRST TIME)
+================================================================================
+
+1. Launch ProjectSpec GUI
+2. Click: Claude → Settings
+3. Paste your API key in the "API Key" field
+4. Select your preferred model:
+   - claude-opus-4.6 (best quality, slower, ~$15/$45 per 1M tokens)
+   - claude-3.5-sonnet (balanced, ~$3/$15 per 1M tokens)
+   - claude-3-haiku (fast, cheap, ~$0.80/$4 per 1M tokens)
+5. Click "Test Connection" button
+6. Wait for confirmation message
+7. Click OK to save settings
+
+================================================================================
+4. CREATE YOUR FIRST PROJECT CONFIGURATION
+================================================================================
+
+STEP 1 - Project Type (Wizard Screen 1)
+- Enter project name (e.g., "My E-commerce App")
+- Select project type (Web App, Desktop App, API, CLI Tool)
+- Choose complexity level (Simple, Medium, Advanced, Enterprise)
+
+STEP 2 - Technology Stack (Wizard Screen 2)
+- Select primary language
+- Choose at least one framework
+- Select database (or "None")
+
+STEP 3 - Key Features (Wizard Screen 3)
+- Check the features you need (Auth, Payments, Search, Admin, etc.)
+
+STEP 4 - UI/UX (Wizard Screen 4)
+- Select design framework (Bootstrap, Tailwind, Material Design)
+- Choose responsive design and dark mode preferences
+
+STEP 5 - Performance (Wizard Screen 5)
+- Set expected user count
+- Configure caching strategy if needed
+
+STEP 6 - Deployment (Wizard Screen 6)
+- Select hosting platform (AWS, Azure, Google Cloud, Heroku, etc.)
+- Choose CI/CD pipeline (GitHub Actions, Jenkins, GitLab CI, etc.)
+
+================================================================================
+5. SEND CONFIGURATION TO CLAUDE
+================================================================================
+
+1. Complete your project configuration in the wizard
+2. Review the preview panel to see your specification
+3. Click: Claude → Send to Claude
+4. Wait for progress dialog (may take 30-60 seconds)
+5. Review the generated implementation plan
+6. Click "Copy to Clipboard" or "Save to File"
+
+================================================================================
+6. VIEW YOUR API HISTORY
+================================================================================
+
+1. Click: Claude → View History
+2. See list of recent API calls (up to 100 entries)
+3. Check which projects were sent and when
+
+================================================================================
+FEATURES AT A GLANCE
+================================================================================
+
+✓ 6-Step Wizard Configuration
+✓ 9 Advanced Configuration Tabs
+✓ 200+ Customizable Options
+✓ Real-Time Specification Preview
+✓ Save/Load Project Configs
+✓ Multiple Claude Models
+✓ API Call History (100 entries)
+✓ Copy to Clipboard
+✓ Save Responses to File
+✓ Error Handling & Recovery
+
+================================================================================
+TIPS & TRICKS
+================================================================================
+
+• PREVIEW YOUR SPEC: Check the preview pane as you configure to see what
+  Claude will receive
+
+• SAVE CONFIGS: Use File → Save Configuration to reuse project templates
+
+• ADJUST SETTINGS: Increase timeout in Claude Settings if requests fail
+
+• CHECK HISTORY: View History to see previous API calls and usage stats
+
+• MODEL SELECTION: Use Haiku for quick iterations, Opus for complex projects
+
+• TEST CONNECTION: Always test your API key after entering it
+
+================================================================================
+COMMON QUESTIONS
+================================================================================
+
+Q: Where are my settings stored?
+A: %APPDATA%\ProjectSpecGUI\settings.json
+
+Q: Where is my API history saved?
+A: %APPDATA%\ProjectSpecGUI\history.json
+
+Q: Can I share my configuration with others?
+A: Yes! Use File → Save Configuration, then share the .json file
+
+Q: What if my API key is wrong?
+A: Click Claude → Settings, verify your key, and click "Test Connection"
+
+Q: Can I change models after configuration?
+A: Yes! Click Claude → Settings and select a different model
+
+Q: How many API calls can I make?
+A: As many as your Anthropic account allows (check billing limits)
+
+Q: Can I disable history tracking?
+A: Yes! Click Claude → Settings and uncheck "Save API call history"
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+APPLICATION WON'T START
+→ Install .NET 6 Runtime: https://dotnet.microsoft.com/download/dotnet/6.0
+
+"INVALID API KEY" ERROR
+→ Verify your key at: https://console.anthropic.com/api_keys
+→ Make sure there are no extra spaces in the key field
+
+REQUEST TIMES OUT
+→ Increase timeout in Claude → Settings
+→ Simplify your configuration (fewer options)
+
+SETTINGS NOT SAVING
+→ Run as Administrator (right-click projectspecgui.exe)
+→ Check %APPDATA% folder permissions
+
+================================================================================
+KEYBOARD SHORTCUTS
+================================================================================
+
+Ctrl+N .......... New Configuration
+Ctrl+O .......... Open Configuration
+Ctrl+S .......... Save Configuration
+Alt+F4 ......... Exit Application
+
+================================================================================
+SYSTEM REQUIREMENTS
+================================================================================
+
+Minimum:
+• Windows 10 or 11
+• 512 MB RAM
+• 100 MB disk space
+• Internet connection (for Claude API)
+• .NET 6 Runtime
+
+Recommended:
+• Windows 11
+• 2 GB RAM
+• SSD storage
+• Good internet connection
+
+================================================================================
+SUPPORT
+================================================================================
+
+Documentation: See README.md in this folder
+Code Repository: https://github.com/royandywilliams-eng/Claude
+Claude API Docs: https://docs.anthropic.com
+Report Issues: Open an issue on GitHub
+
+================================================================================
+
+Ready to go! Open Launch.bat to get started.
+
+ProjectSpec GUI v1.0.0 | March 2026
+================================================================================
