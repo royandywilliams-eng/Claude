@@ -1,0 +1,41 @@
+IMPORTANT: .NET 6 Runtime Installation
+========================================
+
+If ProjectSpec GUI won't start, follow these steps:
+
+METHOD 1: Automatic (Easiest)
+------------------------------
+1. Double-click SETUP.bat
+2. Wait for installer to finish
+3. ProjectSpec GUI will launch automatically
+
+METHOD 2: Manual Installation
+------------------------------
+1. Double-click: dotnet-runtime-6.0.x-win-x64.exe
+2. Click the green "Install" button
+3. Wait for installation (2-5 minutes)
+4. Click "Close" when done
+5. Go to ProjectSpecGUI folder
+6. Double-click Launch.bat
+
+After Installation
+-------------------
+- You can use ProjectSpec GUI offline
+- .NET 6 is now on your computer
+- You can also use it on USB/DVD without reinstalling
+
+If you already have .NET 6:
+- You can skip installation
+- Just run Launch.bat directly
+
+Verification
+-----------
+To verify .NET 6 is installed:
+1. Open Command Prompt
+2. Type: dotnet --version
+3. Should show: 6.0.x or higher
+
+For Help
+--------
+See README.txt for more information
+Visit: https://github.com/royandywilliams-eng/Claude
