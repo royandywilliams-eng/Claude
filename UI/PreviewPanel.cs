@@ -250,44 +250,9 @@ namespace ProjectSpecGUI.UI
 
         private string GenerateJsonSpecification()
         {
-            // Simple JSON representation of configuration
-            var sb = new System.Text.StringBuilder();
-            sb.AppendLine("{");
-            sb.AppendLine($"  \"projectName\": \"{JsonEscape(configuration.ProjectName)}\",");
-            sb.AppendLine($"  \"projectType\": \"{configuration.ProjectType}\",");
-            sb.AppendLine($"  \"complexityLevel\": \"{configuration.ComplexityLevel}\",");
-            sb.AppendLine($"  \"primaryLanguage\": \"{configuration.PrimaryLanguage}\",");
-            sb.AppendLine($"  \"database\": \"{configuration.Database}\",");
-            sb.AppendLine($"  \"designFramework\": \"{configuration.DesignFramework}\",");
-            sb.AppendLine($"  \"hostingPlatform\": \"{configuration.HostingPlatform}\",");
-            sb.AppendLine($"  \"cIPipeline\": \"{configuration.CIPipeline}\",");
-            sb.AppendLine("  \"features\": {");
-
-            int featureCount = configuration.Features.Count;
-            int index = 0;
-            foreach (var feature in configuration.Features)
-            {
-                index++;
-                sb.Append($"    \"{JsonEscape(feature.Key)}\": {(feature.Value ? "true" : "false")}");
-                if (index < featureCount)
-                    sb.AppendLine(",");
-                else
-                    sb.AppendLine();
-            }
-
-            sb.AppendLine("  },");
-            sb.AppendLine($"  \"responsiveDesign\": {(configuration.ResponsiveDesign ? "true" : "false")},");
-            sb.AppendLine($"  \"darkModeSupport\": {(configuration.DarkModeSupport ? "true" : "false")},");
-            sb.AppendLine($"  \"useDocker\": {(configuration.UseDocker ? "true" : "false")},");
-            sb.AppendLine($"  \"useKubernetes\": {(configuration.UseKubernetes ? "true" : "false")}");
-            sb.AppendLine("}");
-
-            return sb.ToString();
-        }
-
-        private string JsonEscape(string input)
-        {
-            return input.Replace("\"", "\\\"").Replace("\n", "\\n").Replace("\r", "\\r");
+            // Use the ConfigurationSerializer for consistent JSON generation
+            var serializer = new ConfigurationSerializer();
+            return serializer.Serialize(configuration);
         }
 
         public void SetConfiguration(ProjectConfiguration config)

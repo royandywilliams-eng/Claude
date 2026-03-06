@@ -182,19 +182,29 @@ namespace ProjectSpecGUI
                 previewPanel.UpdatePreview();
             }
 
-            // Update status bar
-            var validationErrors = projectConfig.Validate();
-            if (validationErrors.Count == 0)
+            // Update status bar with comprehensive validation
+            var validator = new ConfigurationValidator();
+            var validationResult = validator.Validate(projectConfig);
+
+            if (validationResult.IsValid)
             {
                 validationLabel.Text = "✓ Valid";
                 validationLabel.ForeColor = Color.Green;
-                statusLabel.Text = "Configuration is valid";
+                if (validationResult.Warnings.Count > 0)
+                {
+                    statusLabel.Text = $"Configuration is valid ({validationResult.Warnings.Count} warnings)";
+                }
+                else
+                {
+                    statusLabel.Text = "Configuration is valid";
+                }
             }
             else
             {
-                validationLabel.Text = $"⚠ {validationErrors.Count} issues";
+                int issueCount = validationResult.Errors.Count + validationResult.Warnings.Count;
+                validationLabel.Text = $"⚠ {issueCount} issues";
                 validationLabel.ForeColor = Color.Orange;
-                statusLabel.Text = "Configuration has validation errors";
+                statusLabel.Text = $"Configuration has {validationResult.Errors.Count} error(s), {validationResult.Warnings.Count} warning(s)";
             }
         }
 
@@ -220,8 +230,27 @@ namespace ProjectSpecGUI
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     statusLabel.Text = "Opening configuration...";
-                    // TODO: Implement loading from JSON file
-                    MessageBox.Show("Configuration loading not yet implemented.", "Info");
+                    try
+                    {
+                        string json = System.IO.File.ReadAllText(dialog.FileName);
+                        var serializer = new ConfigurationSerializer();
+                        projectConfig = serializer.Deserialize(json);
+
+                        // Update all UI components with loaded configuration
+                        wizardPanel.SetConfiguration(projectConfig);
+                        configTabs.SetConfiguration(projectConfig);
+                        previewPanel.SetConfiguration(projectConfig);
+
+                        statusLabel.Text = $"✓ Configuration loaded from {System.IO.Path.GetFileName(dialog.FileName)}";
+                        statusLabel.ForeColor = System.Drawing.Color.Green;
+                        MessageBox.Show("Configuration loaded successfully!", "Success");
+                    }
+                    catch (Exception ex)
+                    {
+                        statusLabel.Text = "Error loading configuration";
+                        statusLabel.ForeColor = System.Drawing.Color.Red;
+                        MessageBox.Show($"Failed to load configuration: {ex.Message}", "Error");
+                    }
                 }
             }
         }
@@ -236,26 +265,52 @@ namespace ProjectSpecGUI
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     statusLabel.Text = "Saving configuration...";
-                    // TODO: Implement saving to JSON file
-                    MessageBox.Show("Configuration saving not yet implemented.", "Info");
+                    try
+                    {
+                        var serializer = new ConfigurationSerializer();
+                        string json = serializer.Serialize(projectConfig);
+                        System.IO.File.WriteAllText(dialog.FileName, json);
+
+                        statusLabel.Text = $"✓ Configuration saved to {System.IO.Path.GetFileName(dialog.FileName)}";
+                        statusLabel.ForeColor = System.Drawing.Color.Green;
+                        MessageBox.Show("Configuration saved successfully!", "Success");
+                    }
+                    catch (Exception ex)
+                    {
+                        statusLabel.Text = "Error saving configuration";
+                        statusLabel.ForeColor = System.Drawing.Color.Red;
+                        MessageBox.Show($"Failed to save configuration: {ex.Message}", "Error");
+                    }
                 }
             }
         }
 
         private void OnValidateConfiguration(object sender, EventArgs e)
         {
-            var errors = projectConfig.Validate();
-            if (errors.Count == 0)
+            var validator = new ConfigurationValidator();
+            var result = validator.Validate(projectConfig);
+
+            if (result.IsValid && result.Warnings.Count == 0)
             {
                 MessageBox.Show("Configuration is valid! ✓", "Validation Result",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                string errorMessage = "Configuration has the following issues:\n\n" +
-                    string.Join("\n", errors);
-                MessageBox.Show(errorMessage, "Validation Result",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string message = "";
+                if (result.Errors.Count > 0)
+                {
+                    message += "Errors:\n" + string.Join("\n", result.Errors.Select(e => "  • " + e));
+                }
+                if (result.Warnings.Count > 0)
+                {
+                    if (message.Length > 0) message += "\n\n";
+                    message += "Warnings:\n" + string.Join("\n", result.Warnings.Select(w => "  • " + w));
+                }
+
+                MessageBoxIcon icon = result.IsValid ? MessageBoxIcon.Warning : MessageBoxIcon.Error;
+                MessageBox.Show(message, "Validation Result",
+                    MessageBoxButtons.OK, icon);
             }
         }
 
