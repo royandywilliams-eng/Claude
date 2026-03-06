@@ -28,6 +28,25 @@
 2. Select "Create shortcut"
 3. Move shortcut to Desktop or Start Menu
 
+## Uninstallation
+
+ProjectSpec GUI is **100% portable** with no system modifications. Uninstall is simple:
+
+### Option 1: Automated Uninstall (Easiest)
+
+1. Open the folder where you extracted ProjectSpecGUI
+2. Double-click `UNINSTALL.bat`
+3. Confirm the uninstall when prompted
+4. Done. Application and settings completely removed.
+
+### Option 2: Manual Removal
+
+1. Delete the folder containing ProjectSpecGUI
+2. (Optional) Delete `%APPDATA%\ProjectSpecGUI\` to remove settings and history
+3. Done. No registry entries or system files to clean.
+
+**Note**: No uninstall entries appear in Control Panel because this is a portable application with zero system modifications.
+
 ## Quick Start
 
 1. **Launch Application**
