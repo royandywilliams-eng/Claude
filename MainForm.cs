@@ -105,53 +105,129 @@ namespace ProjectSpecGUI
 
         private void CreateMenuBar()
         {
-            MenuStrip menuStrip = new MenuStrip();
+            MenuStrip menuStrip = new MenuStrip
+            {
+                Font = new Font("Segoe UI", 9F),
+                AutoSize = true,
+                Padding = new Padding(4, 2, 0, 2)
+            };
 
             // File menu
-            ToolStripMenuItem fileMenu = new ToolStripMenuItem("&File");
+            ToolStripMenuItem fileMenu = new ToolStripMenuItem("&File")
+            {
+                Font = new Font("Segoe UI", 9.5F),
+                ForeColor = SystemColors.ControlText,
+                BackColor = SystemColors.Control,
+                AutoSize = true,
+                Padding = new Padding(6, 4, 6, 4)
+            };
             fileMenu.DropDownItems.Add("&New Configuration", null, OnNewConfiguration);
             fileMenu.DropDownItems.Add("&Open Configuration", null, OnOpenConfiguration);
             fileMenu.DropDownItems.Add("&Save Configuration", null, OnSaveConfiguration);
             fileMenu.DropDownItems.Add(new ToolStripSeparator());
             fileMenu.DropDownItems.Add("E&xit", null, OnExit);
+            ApplyMenuItemFont(fileMenu);
             menuStrip.Items.Add(fileMenu);
 
             // Edit menu
-            ToolStripMenuItem editMenu = new ToolStripMenuItem("&Edit");
+            ToolStripMenuItem editMenu = new ToolStripMenuItem("&Edit")
+            {
+                Font = new Font("Segoe UI", 9.5F),
+                ForeColor = SystemColors.ControlText,
+                BackColor = SystemColors.Control,
+                AutoSize = true,
+                Padding = new Padding(6, 4, 6, 4)
+            };
             editMenu.DropDownItems.Add("&Validate Configuration", null, OnValidateConfiguration);
             editMenu.DropDownItems.Add("&Reset to Defaults", null, OnResetDefaults);
+            ApplyMenuItemFont(editMenu);
             menuStrip.Items.Add(editMenu);
 
             // Templates menu
-            ToolStripMenuItem templatesMenu = new ToolStripMenuItem("&Templates");
+            ToolStripMenuItem templatesMenu = new ToolStripMenuItem("&Templates")
+            {
+                Font = new Font("Segoe UI", 9.5F),
+                ForeColor = SystemColors.ControlText,
+                BackColor = SystemColors.Control,
+                AutoSize = true,
+                Padding = new Padding(6, 4, 6, 4)
+            };
             templatesMenu.DropDownItems.Add("&Blog CMS", null, OnLoadTemplate);
             templatesMenu.DropDownItems.Add("&E-commerce Store", null, OnLoadTemplate);
             templatesMenu.DropDownItems.Add("&API Backend", null, OnLoadTemplate);
             templatesMenu.DropDownItems.Add("&Desktop App", null, OnLoadTemplate);
+            ApplyMenuItemFont(templatesMenu);
             menuStrip.Items.Add(templatesMenu);
 
             // Claude menu
-            ToolStripMenuItem claudeMenu = new ToolStripMenuItem("&Claude");
+            ToolStripMenuItem claudeMenu = new ToolStripMenuItem("&Claude")
+            {
+                Font = new Font("Segoe UI", 9.5F),
+                ForeColor = SystemColors.ControlText,
+                BackColor = SystemColors.Control,
+                AutoSize = true,
+                Padding = new Padding(6, 4, 6, 4)
+            };
             claudeMenu.DropDownItems.Add("&Send to Claude", null, OnSendToClaude);
             claudeMenu.DropDownItems.Add("&View History", null, OnViewHistory);
             claudeMenu.DropDownItems.Add(new ToolStripSeparator());
             claudeMenu.DropDownItems.Add("&Settings", null, OnClaudeSettings);
+            ApplyMenuItemFont(claudeMenu);
             menuStrip.Items.Add(claudeMenu);
 
             // Tools menu
-            ToolStripMenuItem toolsMenu = new ToolStripMenuItem("&Tools");
+            ToolStripMenuItem toolsMenu = new ToolStripMenuItem("&Tools")
+            {
+                Font = new Font("Segoe UI", 9.5F),
+                ForeColor = SystemColors.ControlText,
+                BackColor = SystemColors.Control,
+                AutoSize = true,
+                Padding = new Padding(6, 4, 6, 4)
+            };
             toolsMenu.DropDownItems.Add("&Preview As JSON", null, OnPreviewJSON);
             toolsMenu.DropDownItems.Add("&Copy Prompt to Clipboard", null, OnCopyPrompt);
+            ApplyMenuItemFont(toolsMenu);
             menuStrip.Items.Add(toolsMenu);
 
             // Help menu
-            ToolStripMenuItem helpMenu = new ToolStripMenuItem("&Help");
+            ToolStripMenuItem helpMenu = new ToolStripMenuItem("&Help")
+            {
+                Font = new Font("Segoe UI", 9.5F),
+                ForeColor = SystemColors.ControlText,
+                BackColor = SystemColors.Control,
+                AutoSize = true,
+                Padding = new Padding(6, 4, 6, 4)
+            };
             helpMenu.DropDownItems.Add("&About", null, OnAbout);
             helpMenu.DropDownItems.Add("&Documentation", null, OnDocumentation);
+            ApplyMenuItemFont(helpMenu);
             menuStrip.Items.Add(helpMenu);
 
             this.MainMenuStrip = menuStrip;
             this.Controls.Add(menuStrip);
+        }
+
+        private void ApplyMenuItemFont(ToolStripMenuItem menu)
+        {
+            foreach (ToolStripItem item in menu.DropDownItems)
+            {
+                if (item is ToolStripMenuItem subMenu)
+                {
+                    subMenu.Font = new Font("Segoe UI", 9.5F);
+                    subMenu.ForeColor = SystemColors.ControlText;
+                    subMenu.BackColor = SystemColors.Control;
+                    subMenu.AutoSize = true;
+                    subMenu.Padding = new Padding(6, 4, 6, 4);
+                }
+                else if (item is not ToolStripSeparator)
+                {
+                    item.Font = new Font("Segoe UI", 9.5F);
+                    item.ForeColor = SystemColors.ControlText;
+                    item.BackColor = SystemColors.Control;
+                    item.AutoSize = true;
+                    item.Padding = new Padding(6, 4, 6, 4);
+                }
+            }
         }
 
         private void CreateStatusBar()
