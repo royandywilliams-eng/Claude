@@ -1,7 +1,10 @@
 using System;
 using System.Drawing;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectSpecGUI.Core;
+using ProjectSpecGUI.Integration;
 using ProjectSpecGUI.UI;
 
 namespace ProjectSpecGUI
@@ -127,9 +130,16 @@ namespace ProjectSpecGUI
             templatesMenu.DropDownItems.Add("&Desktop App", null, OnLoadTemplate);
             menuStrip.Items.Add(templatesMenu);
 
+            // Claude menu
+            ToolStripMenuItem claudeMenu = new ToolStripMenuItem("&Claude");
+            claudeMenu.DropDownItems.Add("&Send to Claude", null, OnSendToClaude);
+            claudeMenu.DropDownItems.Add("&View History", null, OnViewHistory);
+            claudeMenu.DropDownItems.Add(new ToolStripSeparator());
+            claudeMenu.DropDownItems.Add("&Settings", null, OnClaudeSettings);
+            menuStrip.Items.Add(claudeMenu);
+
             // Tools menu
             ToolStripMenuItem toolsMenu = new ToolStripMenuItem("&Tools");
-            toolsMenu.DropDownItems.Add("&Settings", null, OnSettings);
             toolsMenu.DropDownItems.Add("&Preview As JSON", null, OnPreviewJSON);
             toolsMenu.DropDownItems.Add("&Copy Prompt to Clipboard", null, OnCopyPrompt);
             menuStrip.Items.Add(toolsMenu);
@@ -336,10 +346,116 @@ namespace ProjectSpecGUI
             // TODO: Implement template loading
         }
 
-        private void OnSettings(object sender, EventArgs e)
+        private void OnClaudeSettings(object sender, EventArgs e)
         {
-            MessageBox.Show("Settings dialog not yet implemented.", "Coming Soon");
-            // TODO: Implement settings dialog
+            using (SettingsDialog dialog = new SettingsDialog())
+            {
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    statusLabel.Text = "✓ Settings saved";
+                    statusLabel.ForeColor = Color.Green;
+                }
+            }
+        }
+
+        private async void OnSendToClaude(object sender, EventArgs e)
+        {
+            // Load settings
+            var settings = ClaudeSettings.Load();
+
+            // Check if API key is configured
+            if (!settings.IsConfigured())
+            {
+                MessageBox.Show("Please configure your Claude API key in Claude → Settings.", "API Key Not Configured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                OnClaudeSettings(null, null);
+                return;
+            }
+
+            // Show progress dialog
+            var progressForm = new Form
+            {
+                Text = "Sending to Claude...",
+                Width = 300,
+                Height = 120,
+                StartPosition = FormStartPosition.CenterParent,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                ControlBox = false,
+                TopMost = true
+            };
+
+            Label progressLabel = new Label
+            {
+                Text = "Sending configuration to Claude...",
+                AutoSize = true,
+                Top = 20,
+                Left = 20
+            };
+            progressForm.Controls.Add(progressLabel);
+
+            progressForm.Show(this);
+            this.Cursor = Cursors.WaitCursor;
+            statusLabel.Text = "Sending to Claude...";
+
+            try
+            {
+                // Send configuration to Claude
+                var apiClient = new ClaudeAPIClient(settings);
+                var response = await apiClient.SendConfigurationAsync(projectConfig);
+
+                progressForm.Close();
+                this.Cursor = Cursors.Default;
+
+                if (response.Success)
+                {
+                    statusLabel.Text = $"✓ Sent to Claude ({response.InputTokens + response.OutputTokens} tokens)";
+                    statusLabel.ForeColor = Color.Green;
+
+                    // Display response
+                    using (ResponseWindow responseWindow = new ResponseWindow(response))
+                    {
+                        responseWindow.ShowDialog(this);
+                    }
+
+                    // Save to history if enabled
+                    if (settings.SaveHistory)
+                    {
+                        var history = ApiHistory.Load();
+                        history.AddEntry(response.ToHistoryEntry(projectConfig));
+                    }
+                }
+                else
+                {
+                    statusLabel.Text = $"✗ Error: {response.Message}";
+                    statusLabel.ForeColor = Color.Red;
+                    MessageBox.Show($"Failed to send to Claude:\n\n{response.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                progressForm.Close();
+                this.Cursor = Cursors.Default;
+                statusLabel.Text = "Error sending to Claude";
+                statusLabel.ForeColor = Color.Red;
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void OnViewHistory(object sender, EventArgs e)
+        {
+            var history = ApiHistory.Load();
+            if (history.Count == 0)
+            {
+                MessageBox.Show("No history available. Send a configuration to Claude first.", "No History", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string historyText = "Recent API Calls:\n\n";
+            foreach (var entry in history.GetHistory().Take(10))
+            {
+                historyText += $"• {entry.ProjectName}\n  {entry.SentAt:yyyy-MM-dd HH:mm} - {(entry.Success ? "Success" : "Failed")}\n";
+            }
+
+            MessageBox.Show(historyText, "API History", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void OnPreviewJSON(object sender, EventArgs e)
