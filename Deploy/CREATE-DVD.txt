@@ -1,0 +1,247 @@
+================================================================================
+                    HOW TO CREATE DVD+R DISTRIBUTION
+================================================================================
+
+VERSION: ProjectSpec GUI v1.0.0
+CREATED: March 2026
+
+================================================================================
+METHOD 1: USING WINDOWS BUILT-IN TOOLS (EASIEST)
+================================================================================
+
+Step 1: Prepare Files
+-------
+1. Copy entire Deploy\ folder to a working location
+2. Rename it to "ProjectSpecGUI" (no backslashes)
+3. Verify contents:
+   - ProjectSpecGUI.exe
+   - Launch.bat
+   - README.md
+   - QUICKSTART.txt
+   - All .dll files
+
+Step 2: Create ISO Image
+-------
+Windows 10/11 Method:
+
+1. Right-click on "ProjectSpecGUI" folder
+2. Select "Send to" → "Compressed (zipped) folder"
+3. This creates ProjectSpecGUI.zip
+
+Alternative (without compression):
+1. Open File Explorer
+2. Navigate to parent of ProjectSpecGUI folder
+3. Right-click → "Open in Windows Terminal"
+4. Run: tar -a -c -f ProjectSpecGUI.tar ProjectSpecGUI/
+5. This creates ProjectSpecGUI.tar
+
+Step 3: Burn to DVD+R
+-------
+Using Windows Disc Image Burner:
+
+1. Insert blank DVD+R into drive
+2. Right-click ProjectSpecGUI folder
+3. Select "Send to" → "DVD RW Drive"
+4. Click "Burn" button
+5. Wait for completion (2-5 minutes)
+6. Label disc: "ProjectSpec GUI v1.0.0"
+7. Eject and test
+
+Using Third-Party Tool:
+- ImgBurn (free): https://www.imgburn.com
+- Nero Burning ROM: https://www.nero.com
+- CDBurnerXP (free): https://cdburnerxp.se
+
+================================================================================
+METHOD 2: USING POWERSHELL (ADVANCED)
+================================================================================
+
+Run as Administrator:
+
+$sourceFolder = "D:\ProjectSpecGUI\Deploy"
+$isoFile = "D:\ProjectSpecGUI\ProjectSpecGUI-v1.0.0.iso"
+
+# Create ISO using Windows OSCDIMG (if available)
+# Or use third-party tool command
+
+Note: OSCDIMG may not be available on all Windows versions.
+Use Method 1 if this doesn't work.
+
+================================================================================
+METHOD 3: USING LINUX/WSL (FOR DEVELOPERS)
+================================================================================
+
+If you have WSL2 (Windows Subsystem for Linux) installed:
+
+1. Open WSL Terminal
+2. Navigate to deploy folder:
+   cd /mnt/d/ProjectSpecGUI
+
+3. Create ISO:
+   genisoimage -o ProjectSpecGUI-v1.0.0.iso -R -V "ProjectSpec GUI" Deploy/
+
+4. Burn using Windows Disc Image Burner (see Method 1)
+
+================================================================================
+METHOD 4: DIRECT FOLDER BURN (SIMPLEST)
+================================================================================
+
+Without creating ISO file:
+
+1. Insert blank DVD+R
+2. Copy Deploy folder directly to DVD+R
+3. Open "This PC" → DVD drive
+4. Paste Deploy folder
+5. When done, finalize disc
+
+Note: This is simplest but results in "loose" files rather than ISO.
+Use Method 1 for professional ISO image.
+
+================================================================================
+VERIFYING YOUR DVD
+================================================================================
+
+After burning:
+
+1. Insert DVD into different computer
+2. Open file explorer
+3. Check DVD contents:
+   ✓ ProjectSpecGUI.exe (148 KB)
+   ✓ ProjectSpecGUI.dll (93 KB)
+   ✓ Newtonsoft.Json.dll (696 KB)
+   ✓ Launch.bat
+   ✓ README.md
+   ✓ QUICKSTART.txt
+
+4. Double-click Launch.bat
+5. Application should start immediately
+
+If it doesn't:
+→ Check .NET 6 Runtime is installed
+→ Run ProjectSpecGUI.exe directly
+→ Check console output for error messages
+
+================================================================================
+RECOMMENDED BURNING SOFTWARE
+================================================================================
+
+FREE OPTIONS:
+• Windows Disc Image Burner (built-in)
+• CDBurnerXP: https://cdburnerxp.se
+• ImgBurn: https://www.imgburn.com
+
+PAID OPTIONS:
+• Nero Burning ROM: https://www.nero.com
+• Ashampoo Burning Studio: https://www.ashampoo.com
+
+All of these work with DVD+R media.
+
+================================================================================
+DVD+R MEDIA RECOMMENDATIONS
+================================================================================
+
+Brands (reliable):
+• Verbatim (8x or 16x speed)
+• TDK
+• Sony
+• Maxell
+
+Specifications:
+• Type: DVD+R (not DVD-R)
+• Speed: 8x or 16x (slower = more reliable)
+• Capacity: 4.7 GB (standard) or 8.5 GB (dual-layer)
+• Cost: $1-3 per disc
+
+Burning Speed:
+• 4x = Slower, more reliable (~15 minutes)
+• 8x = Moderate (~8 minutes)
+• 16x = Faster, slightly more risk (~4 minutes)
+
+================================================================================
+DISTRIBUTION CHECKLIST
+================================================================================
+
+Before distributing:
+
+□ Files copied to Deploy folder
+□ ISO created or DVD burned
+□ Tested on different computer
+□ Launch.bat works correctly
+□ Application starts and runs
+□ Settings dialog opens without errors
+□ README.md is readable
+□ QUICKSTART.txt is accessible
+□ DVD is labeled with version
+□ DVD is in protective case
+
+Optional:
+□ Create backup ISO image file
+□ Test with .NET 6 Runtime installed
+□ Test with .NET 6 Runtime NOT installed (shows error)
+□ Test Save/Load configuration
+□ Test Claude API integration
+
+================================================================================
+TROUBLESHOOTING DVD CREATION
+================================================================================
+
+PROBLEM: "Cannot write to DVD+R"
+SOLUTION:
+• Disc may be corrupted - try different blank disc
+• Drive may need cleaning - clean with lens cleaner
+• Use slower burning speed (4x instead of 16x)
+• Update DVD drive firmware from manufacturer
+
+PROBLEM: "DVD won't boot/run"
+SOLUTION:
+• This disc is NOT bootable (it's just data)
+• Simply click Launch.bat from file explorer
+• This is expected behavior
+
+PROBLEM: "Application won't start from DVD"
+SOLUTION:
+• .NET 6 Runtime not installed - user must install
+• DVD drive too slow - copy files to local drive first
+• Missing dependency - verify all files are on DVD
+
+PROBLEM: "Error creating ISO"
+SOLUTION:
+• Use Windows Disc Image Burner (Method 1) instead
+• Download ImgBurn (free) for more options
+• Consult DVD authoring software documentation
+
+================================================================================
+DISTRIBUTION FORMATS
+================================================================================
+
+Available Options:
+
+1. LOOSE DEPLOY FOLDER
+   Location: D:\ProjectSpecGUI\Deploy\
+   Size: 1.4 MB
+   Use: Zip and email, or burn directly to DVD
+
+2. TAR.GZ ARCHIVE
+   Location: ProjectSpecGUI-v1.0.0.tar.gz
+   Size: 387 KB
+   Use: Compress for download
+
+3. DVD+R DISC
+   Method: Use instructions above
+   Size: 4.7 GB disc (1.4 MB used)
+   Use: Physical distribution
+
+4. USB FLASH DRIVE
+   Method: Copy Deploy\ folder to USB
+   Size: ~2 MB used on drive
+   Use: Faster than DVD
+
+================================================================================
+
+Your ProjectSpec GUI deployment package is ready for distribution!
+
+For questions about creating DVDs, consult your DVD authoring software
+documentation or search: "How to burn ISO to DVD+R [your OS]"
+
+ProjectSpec GUI v1.0.0 | March 2026
+================================================================================

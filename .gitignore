@@ -1,0 +1,34 @@
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.sln.docstates
+
+# Build artifacts
+*.o
+*.so
+*.a
+
+# Package files
+*.nupkg
+*.snupkg
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
