@@ -99,7 +99,22 @@ Settings and history are stored in **user-controlled locations**:
 
 ## Removal
 
-**To completely remove ProjectSpec GUI**:
+### Automated Uninstall (Easiest)
+
+**One-click uninstall**:
+1. Open the `Deploy/` folder
+2. Double-click `UNINSTALL.bat`
+3. Confirm the uninstall when prompted
+4. Done. Completely removed.
+
+The UNINSTALL.bat script automatically removes:
+- Application folder and all files
+- Settings and history from `%APPDATA%\ProjectSpecGUI\`
+- No registry entries to clean (there are none)
+
+### Manual Removal
+
+**If you prefer to remove manually**:
 
 1. Delete the `Deploy/` folder (or wherever you extracted it)
 2. Delete `%APPDATA%\ProjectSpecGUI\` folder (optional, keeps settings)
