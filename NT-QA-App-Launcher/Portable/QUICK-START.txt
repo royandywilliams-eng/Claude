@@ -1,0 +1,161 @@
+===============================================
+NT Q&A APPLICATION LAUNCHER
+Quick Start Guide
+===============================================
+
+REQUIREMENTS:
+- Windows 10 or Windows 11
+- .NET 9.0 Runtime (or Visual Studio 2022)
+- Node.js (for the NT Q&A App server)
+
+QUICK START (2 seconds):
+
+Method 1: Double-Click Launch Script (Recommended)
+  1. Double-click "Launch-NT-QA-Launcher.bat"
+  2. The launcher window opens
+  3. Click "Start Server"
+  4. Click "Open Browser"
+
+Method 2: Direct Executable
+  1. Double-click "NTQAAppLauncher.exe"
+  2. The launcher window opens
+  3. Follow the same steps as Method 1
+
+FIRST-TIME SETUP:
+
+1. Ensure .NET 9.0 is installed:
+   - Run Command Prompt: dotnet --version
+   - Should show version 9.0.x or higher
+   - If not, download from: https://dotnet.microsoft.com/download/dotnet/9.0
+
+2. Ensure Node.js is installed:
+   - Run Command Prompt: npm --version
+   - Should show a version number
+   - If not, download from: https://nodejs.org/
+
+3. Click "Settings" in the launcher to verify:
+   - App Path: Should be D:\NT-QA-App-Project\dist\NT-QA-App-Setup\app
+   - Port: Default is 3000
+   - Auto-start: Optional (recommended for frequent use)
+
+USAGE:
+
+Click "Start Server"
+  → Launches the NT Q&A App Node.js server
+  → Status shows "Running" when ready (takes 5-10 seconds)
+  → Green indicator appears
+
+Click "Open Browser"
+  → Opens http://localhost:3000 in your default browser
+  → Only available when server is running
+
+Click "Stop Server"
+  → Gracefully shuts down the server
+  → Status shows "Stopped"
+  → Red indicator appears
+
+Click "Settings"
+  → Change app path (if you moved the NT Q&A App)
+  → Change port (if 3000 is already in use)
+  → Enable auto-start (server starts automatically next time)
+
+TROUBLESHOOTING:
+
+"Start Server" button doesn't work?
+  → Check that Node.js is installed: npm --version
+  → Check that the app path is correct in Settings
+  → Check that port 3000 is not already in use
+
+Browser won't open?
+  → Make sure server status shows "Running"
+  → Try manually opening http://localhost:3000
+
+Port 3000 already in use?
+  → Click Settings
+  → Change Port to 3001 or another available port
+  → Click OK and try Start Server again
+
+Launcher won't start?
+  → Ensure .NET 9.0 is installed
+  → Try the batch script: Launch-NT-QA-Launcher.bat
+  → Check Windows Defender/Antivirus isn't blocking it
+
+SETTINGS STORAGE:
+
+Settings are automatically saved to:
+  %APPDATA%\NT-QA-Launcher\settings.json
+
+Includes:
+  - App path
+  - Port number
+  - Auto-start preference
+  - Window position
+
+DELETE SETTINGS:
+  1. Press Windows + R
+  2. Type: %APPDATA%
+  3. Navigate to NT-QA-Launcher folder
+  4. Delete settings.json
+  5. Launcher will recreate defaults on next run
+
+FILES INCLUDED:
+
+NTQAAppLauncher.exe
+  → The main launcher application
+
+Launch-NT-QA-Launcher.bat
+  → Batch script to launch the app (checks .NET)
+
+QUICK-START.txt
+  → This file
+
+NOTES:
+
+✓ The launcher is portable - no installation needed
+✓ It's safe to move the exe to another location
+✓ Settings stay in APPDATA (not affected by exe location)
+✓ The launcher does NOT install anything to Windows
+✓ Safe to delete anytime - no registry modifications
+
+ADVANCED USAGE:
+
+Command-line launch with no UI:
+  NTQAAppLauncher.exe --no-ui --start
+
+Auto-start server on launch:
+  1. Click Settings
+  2. Check "Auto-start server on launcher open"
+  3. Click OK
+  4. Launcher will auto-start server next time
+
+Change app location:
+  1. Click Settings
+  2. Click Browse next to "App Path"
+  3. Select the folder with package.json
+  4. Click OK
+
+USE DIFFERENT PORT:
+  1. Click Settings
+  2. Change "Port" value (try 3001, 3002, etc.)
+  3. Click OK
+  4. Restart server
+
+SUPPORT:
+
+For issues with the launcher:
+  → Check the Status bar at bottom of launcher window
+  → Read the message label (explains what went wrong)
+
+For issues with the NT Q&A App:
+  → Start server and check command prompt output
+  → Open http://localhost:3000 directly in browser
+  → Check that Node.js and npm are properly installed
+
+For issues with .NET:
+  → Run: dotnet --version
+  → Download: https://dotnet.microsoft.com/download/dotnet/9.0
+
+===============================================
+NT Q&A Application Launcher v1.0.0
+Windows 10/11 | .NET 9.0 | March 2026
+===============================================
