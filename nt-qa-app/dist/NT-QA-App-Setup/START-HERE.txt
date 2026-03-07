@@ -1,0 +1,159 @@
+================================================================================
+                    NT Q&A APPLICATION - SETUP
+================================================================================
+
+WELCOME!
+
+This flash drive contains everything you need to install and run the
+NT Q&A Application on your computer.
+
+QUICK START (3 STEPS)
+---------------------
+
+1. REQUIREMENTS CHECK
+   Before you begin, make sure you have:
+   • Windows 7 or later
+   • Node.js v14+ (Get it: https://nodejs.org - choose LTS version)
+   • Python 3.7+ (Get it: https://www.python.org - optional for easy setup)
+
+   If you don't have Node.js installed, download and install it first!
+   Make sure to CHECK "Add to PATH" during installation.
+
+2. RUN THE SETUP WIZARD
+   • Open the "NT-QA-App-Setup" folder
+   • Double-click "NT-QA-Setup.bat"
+   • Follow the wizard steps
+
+3. USE THE APP
+   • After setup, use the desktop shortcut to launch
+   • Or look for "NT Q&A App" in your Start Menu
+
+WHAT'S ON THIS FLASH DRIVE
+----------------------------
+
+NT-QA-App-Setup/
+  ├── NT-QA-Setup.bat          ← RUN THIS TO START SETUP
+  ├── NT-QA-Setup-Wizard.py    (Setup wizard program)
+  ├── app/                     (The NT Q&A Application)
+  │   ├── server.js
+  │   ├── index.html
+  │   ├── package.json
+  │   ├── data/
+  │   └── ... (other app files)
+  └── docs/
+      ├── QUICK_START.txt      (Usage guide after setup)
+      └── README.txt           (Full documentation)
+
+DETAILED SETUP INSTRUCTIONS
+----------------------------
+
+Step 1: Check System Requirements
+   • Windows 7, 8, 10, or 11
+   • Node.js v14.0 or higher
+   • ~100 MB free disk space
+
+   Don't have Node.js?
+   → Download from https://nodejs.org
+   → Run the installer (LTS version)
+   → CHECK "Add to PATH"
+   → Restart your computer
+
+Step 2: Run the Setup Wizard
+   • Navigate to NT-QA-App-Setup folder
+   • Double-click NT-QA-Setup.bat
+   • The setup wizard will:
+     - Check for Node.js
+     - Let you configure settings
+     - Install dependencies (npm packages)
+     - Create shortcuts
+     - Show you the quick start guide
+
+Step 3: Launch the App
+   • Use the desktop shortcut created during setup
+   • Or search "NT Q&A App" in Start Menu
+   • App opens at http://localhost:3000
+
+TROUBLESHOOTING
+---------------
+
+Problem: "Cannot find python" or "Cannot find python3"
+Solution: Install Python from https://www.python.org
+          During install, CHECK "Add Python to PATH"
+          Restart computer and try again
+
+Problem: "Node.js is not installed"
+Solution: Install Node.js from https://nodejs.org (LTS version)
+          Restart computer and run setup again
+
+Problem: Setup wizard won't start
+Solution:
+   1. Check if Python is installed (see above)
+   2. Try opening Command Prompt in the folder
+   3. Type: python NT-QA-Setup-Wizard.py
+   4. Or just copy the app folder to your computer
+      and run: npm install && npm start
+
+Problem: "Port 3000 already in use"
+Solution: During setup, choose a different port number
+          (Try 3001, 3002, 8000, or 8080)
+
+MANUAL SETUP (IF WIZARD FAILS)
+------------------------------
+
+1. Copy the "app" folder from this flash drive to your computer
+
+2. Open Command Prompt and navigate to the app folder:
+   cd path\to\app
+
+3. Install dependencies:
+   npm install
+
+4. Start the application:
+   npm start
+
+5. Open your browser to http://localhost:3000
+
+FOR MORE HELP
+-------------
+
+Inside NT-QA-App-Setup/docs/ you'll find:
+• QUICK_START.txt - How to use the application
+• README.txt - Detailed setup and troubleshooting
+
+These files are also displayed at the end of setup wizard.
+
+IMPORTANT NOTES
+---------------
+
+✓ Internet Connection: Required only for setup (to download packages)
+✓ Antivirus: May interfere with npm install. If it fails, temporarily
+  disable antivirus, run setup again, then re-enable it.
+✓ Multiple PCs: You can install on multiple computers
+✓ Updates: To update to a newer version, repeat the setup process
+
+GETTING STARTED WITH THE APP
+-----------------------------
+
+After setup completes, you'll see a Quick Start Guide. Here's a preview:
+
+1. SEARCH - Find Q&A pairs by keywords
+2. BROWSE BOOKS - View all 27 New Testament books
+3. RANDOM - Get random questions to test yourself
+4. EXPORT - Download Q&A as text files or create summaries
+
+See QUICK_START.txt for detailed feature guide.
+
+CONTACT & SUPPORT
+-----------------
+
+For issues or questions:
+1. Check the documentation files (README.txt, QUICK_START.txt)
+2. Check project repository for updates
+3. Ensure Node.js is properly installed and in PATH
+
+================================================================================
+
+Ready to get started?
+Open the NT-QA-App-Setup folder and double-click NT-QA-Setup.bat!
+
+================================================================================
