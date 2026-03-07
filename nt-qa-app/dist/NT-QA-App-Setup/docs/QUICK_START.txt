@@ -1,0 +1,153 @@
+================================================================================
+NT Q&A APPLICATION - QUICK START GUIDE
+================================================================================
+
+LAUNCHING THE APP
+-----------------
+1. Double-click the desktop shortcut "NT Q&A App"
+   OR
+   Search "NT Q&A App" in Start Menu and click it
+
+The app will open in your default web browser at http://localhost:3000
+
+If the browser doesn't open automatically:
+- Open your web browser
+- Go to http://localhost:3000
+
+EXPLORING THE APP
+-----------------
+
+SEARCH TAB
+• Type a word or phrase in the search box
+• Click "Search" to find matching questions and answers
+• Results show the book name, question, and answer
+• Click "Add" on any result to select it
+
+BROWSE BOOKS TAB
+• Select a book from the dropdown
+• View all Q&A pairs for that book
+• Use the chapter filter to view specific chapters
+• Click "Add" to select questions
+
+RANDOM Q&A TAB
+• Click "Get Random Question" to display a random question
+• Great for testing your knowledge
+• Click "Add" to add it to your selection
+
+EXPORT TAB
+• Shows your current selections
+• "Export All" downloads all 27 books to a text file
+• "Export Selected" downloads only your selected items
+• "Generate Summary" creates summaries of your selections
+
+ADDING ITEMS TO SELECTION
+--------------------------
+1. Click the "➕ Add" button on any question
+2. The button will change to "✓ Added"
+3. A selection banner appears at the top showing count
+4. Selected items stay selected as you browse
+5. View all selections in the Export tab
+6. Click "Clear" to remove all selections
+7. Click again on an added item to deselect it
+
+GENERATING SUMMARIES
+---------------------
+
+SIMPLE SUMMARY (Free)
+1. Select some Q&A items (click "Add")
+2. Go to Export tab
+3. Select "Simple Summary"
+4. Click "Generate Summary"
+5. Wait for processing
+6. Copy or download the summary
+
+AI SUMMARY (Requires API Key)
+1. Get an OpenAI API key from https://platform.openai.com
+2. Go to Export tab
+3. Select "AI Summary"
+4. Paste your API key in the text field
+5. Select items and click "Generate Summary"
+6. The AI will create an intelligent summary
+7. Copy or download the result
+
+TIPS & TRICKS
+-------------
+
+• Bookmark: Add http://localhost:3000 to your bookmarks
+• Keyboard Shortcut: Press Ctrl+K in your browser for quick search
+• Export Format: Exported files are plain text (can open with any editor)
+• Large Exports: For exporting all books, allow a few seconds for download
+
+WHEN YOU'RE DONE
+----------------
+
+To stop the app:
+1. Close the browser tab
+2. The app continues running in background
+3. To fully stop, find the console window and press Ctrl+C
+   OR close the NT-QA-App.bat window if it's open
+
+STARTING AGAIN
+--------------
+Just double-click the desktop shortcut again - the app restarts automatically
+
+SETTINGS & PREFERENCES
+----------------------
+
+Your preferences are saved in:
+C:\Users\<YourUsername>\.nt-qa-app\setup_config.json
+
+You can manually edit this file to change:
+- Port number (if needed for conflicts)
+- Theme preference (light/dark)
+- Other settings
+
+After editing, restart the app for changes to take effect
+
+TROUBLESHOOTING
+---------------
+
+Q: I don't see the browser open
+A: The app is still running. Manually go to http://localhost:3000
+
+Q: Search isn't working
+A: Try simpler search terms, no special characters
+   Searches are case-insensitive
+
+Q: Can I change the port?
+A: Yes, edit the config file:
+   C:\Users\<YourUsername>\.nt-qa-app\setup_config.json
+   Change "app_port" to another number (1024-65535)
+   Restart the app
+
+Q: How do I update the app?
+A: Download the latest version and run setup wizard again
+   Your configuration will be preserved
+
+Q: Can I use this on multiple computers?
+A: Yes! Use the flash drive or copy the folder to other computers
+   Run NT-QA-Setup.bat on each computer
+
+Q: How do I uninstall?
+A: Simply delete the NT-QA-App folder and shortcuts
+   Your settings are saved separately and won't affect anything else
+
+MORE FEATURES
+-------------
+
+• Keyboard navigation: Tab to move between fields
+• Multiple selections: Select as many items as you want before exporting
+• Large content: Scroll within the Q&A cards to see full text
+• Copy to clipboard: Available in summary view
+
+NEED HELP?
+----------
+
+Check these files for more information:
+- README.txt - Detailed setup and troubleshooting
+- INSTALLATION.md - System requirements and setup guide
+- Project documentation - Full feature reference
+
+================================================================================
+Happy learning with NT Q&A!
+================================================================================

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Testament Q&A</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Selection Counter Banner -->
+    <div id="selection-banner" class="selection-banner hidden">
+        <div class="selection-banner-content">
+            <span id="selection-counter">📌 0 items selected</span>
+            <div class="selection-banner-buttons">
+                <button id="view-selection-btn" class="btn btn-sm">👁️ View</button>
+                <button id="clear-selection-btn" class="btn btn-sm btn-danger">✕ Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>📖 New Testament Q&A</h1>
+            <p>Explore questions and answers from all 27 books of the New Testament</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="search">Search</button>
+            <button class="tab-btn" data-tab="browse">Browse Books</button>
+            <button class="tab-btn" data-tab="random">Random Q&A</button>
+            <button class="tab-btn" data-tab="export">Export</button>
+        </nav>
+
+        <!-- Search Tab -->
+        <section id="search-tab" class="tab-content active">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search questions and answers..." />
+                <button id="search-btn" class="btn btn-primary">Search</button>
+            </div>
+            <div id="search-results" class="results"></div>
+        </section>
+
+        <!-- Browse Tab -->
+        <section id="browse-tab" class="tab-content">
+            <div class="browse-container">
+                <div class="book-selector">
+                    <label for="book-select">Select a Book:</label>
+                    <select id="book-select">
+                        <option value="">Choose a book...</option>
+                    </select>
+                </div>
+                <div id="chapter-selector" class="chapter-selector hidden">
+                    <label for="chapter-select">Select a Chapter:</label>
+                    <select id="chapter-select">
+                        <option value="">View entire book</option>
+                    </select>
+                    <small>Shows Q&A from selected chapter</small>
+                </div>
+            </div>
+            <div id="book-qa" class="qa-display"></div>
+        </section>
+
+        <!-- Random Tab -->
+        <section id="random-tab" class="tab-content">
+            <button id="random-btn" class="btn btn-primary btn-large">Get Random Question</button>
+            <div id="random-qa" class="qa-display"></div>
+        </section>
+
+        <!-- Export Tab -->
+        <section id="export-tab" class="tab-content">
+            <div class="export-container">
+                <h2>Export Q&A Data</h2>
+                <p>Download as an editable text file</p>
+
+                <div class="export-options">
+                    <div class="export-option">
+                        <h3>Export All Q&A</h3>
+                        <p>All 27 books with complete content</p>
+                        <button id="export-btn" class="btn btn-primary">📥 Export All</button>
+                    </div>
+
+                    <div class="export-option">
+                        <h3>Export Selected Items</h3>
+                        <p id="selected-count">No items selected yet</p>
+                        <button id="export-selected-btn" class="btn btn-primary" disabled>📌 Export Selected</button>
+                    </div>
+
+                    <div class="export-option">
+                        <h3>Generate Summary</h3>
+                        <p>Create intelligent summary of selected Q&A</p>
+                        <div class="summary-options">
+                            <label>
+                                <input type="radio" name="summary-mode" value="extractive" checked>
+                                Simple Summary (fast, free)
+                            </label>
+                            <label>
+                                <input type="radio" name="summary-mode" value="ai">
+                                AI Summary (requires API key)
+                            </label>
+                        </div>
+                        <input type="password" id="openai-key" placeholder="OpenAI API key (only for AI mode)" class="hidden">
+                        <button id="summarize-btn" class="btn btn-primary" disabled>✨ Generate Summary</button>
+                    </div>
+                </div>
+
+                <div id="selection-list-container" class="selection-list-container hidden">
+                    <h4>Selected Items:</h4>
+                    <div id="selection-list" class="selection-list"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

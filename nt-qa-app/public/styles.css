@@ -1,0 +1,791 @@
+/* Windows 11 Fluent Design Variables */
+:root {
+    --win11-primary: #0078d4;
+    --win11-accent: #0078d4;
+    --win11-light-bg: #ffffff;
+    --win11-dark-bg: #1e1e1e;
+    --win11-surface: #f3f3f3;
+    --win11-dark-surface: #2d2d30;
+    --win11-border: #d0d0d0;
+    --win11-dark-border: #404040;
+    --win11-text: #000000;
+    --win11-text-secondary: #424242;
+    --win11-dark-text: #ffffff;
+    --win11-dark-text-secondary: #e0e0e0;
+
+    /* Fluent motion */
+    --fluent-animation: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --win11-surface: var(--win11-dark-surface);
+        --win11-border: var(--win11-dark-border);
+        --win11-text: var(--win11-dark-text);
+        --win11-text-secondary: var(--win11-dark-text-secondary);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--win11-text);
+}
+
+/* Windows 11 Fluent Design: Use system accent color when available */
+@supports (accent-color: AccentColor) {
+    :root {
+        --win11-accent: AccentColor;
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    background: #f8f9fa;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+    background: #f0f0f0;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.tab-content {
+    display: none;
+    padding: 30px;
+    animation: fadeIn 0.3s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-large {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.book-selector {
+    margin-bottom: 30px;
+}
+
+.book-selector select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.book-selector select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.results {
+    display: grid;
+    gap: 20px;
+}
+
+.qa-display {
+    display: grid;
+    gap: 20px;
+}
+
+.qa-item {
+    background: #f8f9fa;
+    border-left: 5px solid #667eea;
+    padding: 20px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.qa-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.qa-book {
+    color: #667eea;
+    font-weight: 700;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.qa-question {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.qa-answer {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.export-container {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
+    border-radius: 8px;
+}
+
+.export-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.export-container p {
+    color: #666;
+    font-size: 1.05em;
+    margin-bottom: 30px;
+}
+
+.export-info {
+    color: #999;
+    font-size: 0.95em;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Selection Banner */
+.selection-banner {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ebf0 100%);
+    border-bottom: 2px solid #667eea;
+    padding: 12px 20px;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selection-banner.hidden {
+    display: none;
+}
+
+.selection-banner-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+#selection-counter {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 1.05em;
+}
+
+.selection-banner-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Button Styles */
+.btn-sm {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
+}
+
+.btn-add-item {
+    padding: 8px 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.btn-add-item:hover {
+    background: #5568d3;
+    transform: translateY(-1px);
+}
+
+.qa-item.selected {
+    background: #e8f4f8;
+    border-left-color: #27ae60;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* Export Options Layout */
+.export-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.export-option {
+    background: white;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.3s;
+}
+
+.export-option:hover {
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+}
+
+.export-option h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.export-option p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+#export-selected-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#export-selected-btn:disabled:hover {
+    background: #667eea;
+    transform: none;
+}
+
+/* Selection List Container */
+.selection-list-container {
+    margin-top: 20px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.selection-list-container.hidden {
+    display: none;
+}
+
+.selection-list-container h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.selection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.selection-item {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border-left: 3px solid #667eea;
+    font-size: 0.85em;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selection-item-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.selection-item-remove {
+    padding: 4px 8px;
+    margin-left: 8px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: all 0.2s;
+}
+
+.selection-item-remove:hover {
+    background: #c0392b;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .export-options {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .selection-banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-add-item {
+        padding: 10px 12px;
+        font-size: 0.8em;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        border-bottom: none;
+        border-right: 3px solid transparent;
+    }
+
+    .tab-btn.active {
+        border-right-color: #667eea;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .container {
+        border-radius: 0;
+    }
+}
+
+/* Chapter Selector Styles */
+.chapter-selector {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+}
+
+.chapter-selector.hidden {
+    display: none;
+}
+
+.chapter-selector label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.chapter-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.chapter-selector select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.chapter-selector small {
+    color: #999;
+    font-style: italic;
+    display: block;
+}
+
+/* Q&A Chapter Badge */
+.qa-chapter {
+    display: inline-block;
+    background: #e8f4f8;
+    color: #667eea;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Summary Options */
+.summary-options {
+    margin: 15px 0;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.summary-options label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    cursor: pointer;
+    color: #555;
+}
+
+.summary-options label:last-child {
+    margin-bottom: 0;
+}
+
+.summary-options input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* OpenAI API Key Input */
+#openai-key {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-family: monospace;
+    transition: border-color 0.3s;
+}
+
+#openai-key:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#openai-key.hidden {
+    display: none;
+}
+
+/* Summary Modal */
+.summary-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.summary-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.summary-content h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.summary-meta {
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.summary-text {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    border-left: 3px solid #667eea;
+}
+
+.summary-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.summary-actions .btn {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    min-width: 100px;
+}
+
+/* Responsive Design for Summary Modal */
+@media (max-width: 600px) {
+    .summary-modal {
+        padding: 10px;
+    }
+
+    .summary-content {
+        max-width: 100%;
+        padding: 20px;
+        max-height: 90vh;
+    }
+
+    .summary-actions {
+        flex-direction: column;
+    }
+
+    .summary-actions .btn {
+        width: 100%;
+    }
+
+    .chapter-selector {
+        margin: 15px 0;
+    }
+
+    .book-selector label,
+    .chapter-selector label {
+        font-size: 0.95em;
+    }
+}
+
+/* ============= WINDOWS 11 FLUENT DESIGN ENHANCEMENTS ============= */
+
+/* Fluent Design: Enhanced rounded corners and spacing */
+.container {
+    border-radius: 16px;
+    border: 1px solid var(--win11-border);
+}
+
+/* Fluent Design: Button refinements */
+.btn {
+    border-radius: 6px;
+    transition: all 0.2s var(--fluent-animation);
+    font-weight: 500;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Fluent Design: Tab styling with accent color */
+.tab-btn.active {
+    border-bottom: 3px solid var(--win11-accent);
+    color: var(--win11-accent);
+}
+
+/* Fluent Design: Modal with frosted glass effect */
+.summary-modal {
+    border-radius: 12px;
+    border: 1px solid var(--win11-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+/* Fluent Design: Selection highlight */
+.selection-item {
+    border-radius: 8px;
+    border: 1px solid var(--win11-border);
+    transition: all 0.2s var(--fluent-animation);
+}
+
+.selection-item:hover {
+    background: var(--win11-surface);
+}
+
+/* Fluent Design: Q&A Items */
+.qa-item {
+    border-radius: 8px;
+    border: 1px solid var(--win11-border);
+    transition: all 0.2s var(--fluent-animation);
+}
+
+.qa-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Fluent Design: Input fields */
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    border-radius: 6px;
+    border: 1px solid var(--win11-border);
+    background: var(--win11-light-bg);
+    color: var(--win11-text);
+    transition: border-color 0.2s var(--fluent-animation);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--win11-accent);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.1);
+}
+
+/* Fluent Design: Banner notifications */
+#selection-banner {
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.08) 0%, rgba(0, 120, 212, 0.04) 100%);
+    border: 1px solid var(--win11-accent);
+    backdrop-filter: blur(10px);
+}
+
+/* Fluent Design: Header gradient with accent */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Fluent Design: Responsive spacing */
+@media (max-width: 768px) {
+    .container {
+        border-radius: 12px;
+    }
+
+    .btn {
+        border-radius: 4px;
+    }
+}

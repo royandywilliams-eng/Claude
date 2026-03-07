@@ -1,0 +1,328 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Matthew",
+      "chapters": 28,
+      "qa": [
+        {"q": "Who are the four gospel writers?", "a": "Matthew, Mark, Luke, and John", "chapter": null},
+        {"q": "What is the Sermon on the Mount?", "a": "Jesus's teachings recorded in Matthew 5-7, including the Beatitudes", "chapter": 5},
+        {"q": "How many apostles did Jesus choose?", "a": "Twelve apostles", "chapter": null},
+        {"q": "What is the Great Commission?", "a": "Jesus's command to make disciples of all nations (Matthew 28:19-20)", "chapter": 28},
+        {"q": "What are the Beatitudes?", "a": "Eight blessings pronounced by Jesus at the start of the Sermon on the Mount", "chapter": 5}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Mark",
+      "chapters": 16,
+      "qa": [
+        {"q": "Who wrote the Gospel of Mark?", "a": "John Mark, often understood to be Peter's associate", "chapter": null},
+        {"q": "What is Mark's main emphasis?", "a": "Jesus's actions and power, presenting Him as the Son of God", "chapter": null},
+        {"q": "What does 'Gospel' mean?", "a": "Good news or good message", "chapter": null},
+        {"q": "How many times does Mark describe Jesus calming storms?", "a": "Once (Mark 4:35-41)", "chapter": 4},
+        {"q": "What is the 'messianic secret' in Mark?", "a": "Jesus's repeated commands to keep His identity secret", "chapter": null}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Luke",
+      "chapters": 24,
+      "qa": [
+        {"q": "Who was Luke?", "a": "A physician and companion of the Apostle Paul", "chapter": null},
+        {"q": "What unique parables does Luke include?", "a": "The Good Samaritan and the Prodigal Son", "chapter": 10},
+        {"q": "What is Luke's focus?", "a": "Jesus's compassion for the poor and marginalized", "chapter": null},
+        {"q": "How many chapters does Luke have?", "a": "24 chapters", "chapter": null},
+        {"q": "What does Luke emphasize about the Holy Spirit?", "a": "The role of the Holy Spirit in Jesus's ministry and the early church", "chapter": 1}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "John",
+      "chapters": 21,
+      "qa": [
+        {"q": "What is John's distinctive opening?", "a": "'In the beginning was the Word' - presenting Jesus as God's eternal Word", "chapter": 1},
+        {"q": "How many 'signs' does John record?", "a": "Seven major miracles or signs", "chapter": null},
+        {"q": "What is John's main theme?", "a": "Jesus is the Son of God and believers can have eternal life through Him", "chapter": null},
+        {"q": "What is the Last Supper called in John?", "a": "The washing of feet and the giving of the new commandment", "chapter": 13},
+        {"q": "What are Jesus's 'I am' statements in John?", "a": "Declarations of Jesus's identity (I am the bread, light, door, shepherd, etc.)", "chapter": 6}
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Acts",
+      "chapters": 28,
+      "qa": [
+        {"q": "What does Acts record?", "a": "The history of the early Christian church after Jesus's ascension", "chapter": null},
+        {"q": "Who is the author of Acts?", "a": "Luke, the gospel writer", "chapter": null},
+        {"q": "What is Pentecost?", "a": "The day the Holy Spirit came upon the apostles and the church began", "chapter": 2},
+        {"q": "What was Peter's role in Acts?", "a": "He was a leading apostle and missionary to the Jewish people", "chapter": null},
+        {"q": "Who was Stephen?", "a": "The first Christian martyr (deacon and evangelist)", "chapter": 7}
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Romans",
+      "chapters": 16,
+      "qa": [
+        {"q": "To whom did Paul write Romans?", "a": "To the church at Rome", "chapter": null},
+        {"q": "What is the main theme of Romans?", "a": "Salvation through faith in Jesus Christ", "chapter": null},
+        {"q": "What does Romans 3:23 say?", "a": "'All have sinned and fall short of the glory of God'", "chapter": 3},
+        {"q": "What is justification by faith?", "a": "The doctrine that believers are made right with God through faith, not works", "chapter": null},
+        {"q": "What is Paul's view on the law?", "a": "The law showed sin but cannot save; salvation comes through Christ", "chapter": null}
+      ]
+    },
+    {
+      "id": 7,
+      "name": "1 Corinthians",
+      "chapters": 16,
+      "qa": [
+        {"q": "What problems did Paul address in Corinth?", "a": "Division, sexual immorality, disputes, and misuse of spiritual gifts", "chapter": null},
+        {"q": "What is Paul's teaching on spiritual gifts?", "a": "All believers receive gifts from the Holy Spirit to serve the church", "chapter": 12},
+        {"q": "What is 1 Corinthians 13?", "a": "Paul's description of love as the greatest spiritual gift", "chapter": 13},
+        {"q": "What did Paul teach about the Lord's Supper?", "a": "Instructions on proper observance and remembrance of Jesus's death", "chapter": 11},
+        {"q": "What is the 'body of Christ'?", "a": "A metaphor for the church where Christ is the head and believers are members", "chapter": 12}
+      ]
+    },
+    {
+      "id": 8,
+      "name": "2 Corinthians",
+      "chapters": 13,
+      "qa": [
+        {"q": "What is Paul's main concern in 2 Corinthians?", "a": "Defending his apostolic authority and reconciling with the church", "chapter": null},
+        {"q": "What does Paul say about suffering?", "a": "'When I am weak, then I am strong' - strength through weakness", "chapter": 12},
+        {"q": "What is 'the thorn in Paul's flesh'?", "a": "An affliction Paul prayed would be removed (likely a physical ailment)", "chapter": 12},
+        {"q": "What does Paul teach about giving?", "a": "Generous giving should be cheerful and voluntary", "chapter": 9},
+        {"q": "What is the 'new covenant'?", "a": "God's promise of salvation through Christ, replacing the old law", "chapter": 3}
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Galatians",
+      "chapters": 6,
+      "qa": [
+        {"q": "What is the main issue in Galatians?", "a": "Whether Gentiles must follow Jewish law to be saved", "chapter": null},
+        {"q": "What is Paul's central argument?", "a": "Salvation is by faith in Christ alone, not by works of the law", "chapter": 3},
+        {"q": "What does Paul mean by 'Christian freedom'?", "a": "Freedom from the law through faith in Christ", "chapter": 5},
+        {"q": "What are the 'works of the flesh' Paul lists?", "a": "Sins like immorality, idolatry, hatred, and envy", "chapter": 5},
+        {"q": "What is the 'fruit of the Spirit'?", "a": "Love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control", "chapter": 5}
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Ephesians",
+      "chapters": 6,
+      "qa": [
+        {"q": "What is Paul's central theme in Ephesians?", "a": "Unity of the church as the body of Christ", "chapter": null},
+        {"q": "What is the 'armor of God'?", "a": "Spiritual protection described in Ephesians 6 (truth, righteousness, gospel, faith, salvation, word of God)", "chapter": 6},
+        {"q": "What does Paul teach about marriage?", "a": "Wives and husbands should submit to and love each other as Christ loved the church", "chapter": 5},
+        {"q": "What is Paul's prayer in Ephesians 3?", "a": "That believers understand the love of Christ and be filled with God's fullness", "chapter": 3},
+        {"q": "What is the church?", "a": "The body of Christ, with Christ as head and believers as members", "chapter": 1}
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Philippians",
+      "chapters": 4,
+      "qa": [
+        {"q": "Where did Paul write Philippians from?", "a": "From prison (likely Rome)", "chapter": null},
+        {"q": "What is Paul's main theme?", "a": "Joy and unity in Christ despite persecution", "chapter": null},
+        {"q": "What is the 'Christ hymn' in Philippians 2?", "a": "A passage describing Christ's humiliation and exaltation", "chapter": 2},
+        {"q": "What does Paul say about anxiety?", "a": "'Do not be anxious about anything, but in every situation pray with thanksgiving'", "chapter": 4},
+        {"q": "What does Paul mean by 'pressing on'?", "a": "Continuing to pursue Christ and the goal of eternal life", "chapter": 3}
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Colossians",
+      "chapters": 4,
+      "qa": [
+        {"q": "What heresy was Paul addressing in Colossians?", "a": "False teachings that added requirements to faith in Christ", "chapter": null},
+        {"q": "Who is Christ according to Colossians?", "a": "The head of the church and supreme over all creation", "chapter": 1},
+        {"q": "What is 'set your minds on things above'?", "a": "Paul's call to focus on heavenly values rather than earthly concerns", "chapter": 3},
+        {"q": "What is the household code in Colossians?", "a": "Instructions for wives, husbands, children, servants, and masters", "chapter": 3},
+        {"q": "What does Paul emphasize about rules?", "a": "Rules about food and festivals are shadows of Christ, not essential for salvation", "chapter": 2}
+      ]
+    },
+    {
+      "id": 13,
+      "name": "1 Thessalonians",
+      "chapters": 5,
+      "qa": [
+        {"q": "What is 1 Thessalonians about?", "a": "Encouragement to the young church in Thessalonica and teaching on Christ's return", "chapter": null},
+        {"q": "What does Paul teach about the Second Coming?", "a": "Christ will return suddenly, believers should be watchful and holy", "chapter": 5},
+        {"q": "What is the 'rapture'?", "a": "The belief that believers will be caught up to meet Christ in the air", "chapter": 4},
+        {"q": "How should believers live while waiting for Christ?", "a": "Work diligently, love one another, and live peacefully", "chapter": 4},
+        {"q": "What encouragement does Paul give about death?", "a": "Believers need not grieve like those without hope; they will see the Lord", "chapter": 4}
+      ]
+    },
+    {
+      "id": 14,
+      "name": "2 Thessalonians",
+      "chapters": 3,
+      "qa": [
+        {"q": "Why did Paul write 2 Thessalonians?", "a": "To clarify false teachings about Christ's return and encourage the persecuted church", "chapter": null},
+        {"q": "What does Paul say about 'the lawless one'?", "a": "A prophecy of a future figure of rebellion (often called the Antichrist)", "chapter": 2},
+        {"q": "What should believers do while waiting for Christ?", "a": "Work hard and not be idle or dependent on others", "chapter": 3},
+        {"q": "What is Paul's command about idleness?", "a": "'If a man will not work, he shall not eat'", "chapter": 3},
+        {"q": "What is Paul's closing prayer?", "a": "That God would direct their hearts into God's love and Christ's perseverance", "chapter": 3}
+      ]
+    },
+    {
+      "id": 15,
+      "name": "1 Timothy",
+      "chapters": 6,
+      "qa": [
+        {"q": "Who was Timothy?", "a": "A young pastor and companion of Paul", "chapter": null},
+        {"q": "What is Paul's main purpose in 1 Timothy?", "a": "To instruct Timothy on church leadership and sound doctrine", "chapter": null},
+        {"q": "What does Paul teach about elders?", "a": "Requirements for church leadership: above reproach, faithful, hospitable, able to teach", "chapter": 3},
+        {"q": "What is Paul's view on money?", "a": "'The love of money is the root of all kinds of evil'", "chapter": 6},
+        {"q": "What is 'the faith'?", "a": "The body of Christian teaching and doctrine", "chapter": null}
+      ]
+    },
+    {
+      "id": 16,
+      "name": "2 Timothy",
+      "chapters": 4,
+      "qa": [
+        {"q": "What is Paul's tone in 2 Timothy?", "a": "Urgent and personal, written near the end of his life", "chapter": null},
+        {"q": "What does Paul urge Timothy to do?", "a": "Be strong in Christ, guard the gospel, and continue in faithful teaching", "chapter": 2},
+        {"q": "What is Paul's final charge?", "a": "'Preach the Word; be ready in season and out of season'", "chapter": 4},
+        {"q": "What does Paul say about Scripture?", "a": "'All Scripture is God-breathed and is useful for teaching, rebuking, correcting and training'", "chapter": 3},
+        {"q": "What is Paul's final declaration?", "a": "'I have fought a good fight, I have finished the race, I have kept the faith'", "chapter": 4}
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Titus",
+      "chapters": 3,
+      "qa": [
+        {"q": "Who was Titus?", "a": "Paul's companion and leader of the church in Crete", "chapter": null},
+        {"q": "What qualifications does Paul list for elders?", "a": "Blameless, faithful, hospitable, sound in teaching", "chapter": 1},
+        {"q": "What is Paul's emphasis on good works?", "a": "Believers should be devoted to good works and set an example", "chapter": 2},
+        {"q": "What does Paul teach about church discipline?", "a": "Leaders should rebuke divisive people and false teachers", "chapter": 3},
+        {"q": "What is Paul's focus on relationships?", "a": "How different groups (older, younger, slaves) should relate to each other in love", "chapter": 2}
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Philemon",
+      "chapters": 1,
+      "qa": [
+        {"q": "What is Philemon about?", "a": "Paul's letter requesting forgiveness for a runaway slave named Onesimus", "chapter": null},
+        {"q": "Who was Onesimus?", "a": "A slave who ran away from Philemon but became a Christian", "chapter": 1},
+        {"q": "What does Paul ask Philemon to do?", "a": "Receive Onesimus as a brother in Christ, not as a slave", "chapter": 1},
+        {"q": "What is the main theme?", "a": "Reconciliation and the transformative power of Christ", "chapter": 1},
+        {"q": "Why is Philemon significant?", "a": "It shows early Christian teaching on slavery and human dignity in Christ", "chapter": 1}
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Hebrews",
+      "chapters": 13,
+      "qa": [
+        {"q": "What is Hebrews' main theme?", "a": "Jesus is superior to all and the ultimate high priest", "chapter": 1},
+        {"q": "What is the 'better covenant'?", "a": "Christ's new covenant replacing the old Jewish law", "chapter": 8},
+        {"q": "Who is the 'author of our salvation'?", "a": "Jesus Christ, who was perfected through suffering", "chapter": 2},
+        {"q": "What is faith according to Hebrews 11?", "a": "'Being sure of what we hope for and certain of what we do not see'", "chapter": 11},
+        {"q": "What does Hebrews say about Jesus's priesthood?", "a": "Jesus is a priest forever in the order of Melchizedek, not based on genealogy", "chapter": 5}
+      ]
+    },
+    {
+      "id": 20,
+      "name": "James",
+      "chapters": 5,
+      "qa": [
+        {"q": "What is James's main emphasis?", "a": "Faith without works is dead; believers must live out their faith", "chapter": 2},
+        {"q": "What is the 'royal law'?", "a": "'Love your neighbor as yourself'", "chapter": 2},
+        {"q": "What does James teach about the tongue?", "a": "It is small but powerful; it can bring blessing or curse", "chapter": 3},
+        {"q": "What is James's teaching on trials?", "a": "Trials develop perseverance and should be considered joy", "chapter": 1},
+        {"q": "What does James say about prayer?", "a": "'The prayer of a righteous man is powerful and effective'", "chapter": 5}
+      ]
+    },
+    {
+      "id": 21,
+      "name": "1 Peter",
+      "chapters": 5,
+      "qa": [
+        {"q": "Who was writing to and why?", "a": "Peter wrote to persecuted Christians to encourage them in their faith", "chapter": 1},
+        {"q": "What is Peter's main message?", "a": "Believers should hope in Christ despite suffering", "chapter": null},
+        {"q": "What is the 'living stone'?", "a": "Jesus Christ, the foundation of the church", "chapter": 2},
+        {"q": "What does Peter teach about submission?", "a": "Christians should submit to government, masters, and spouses for Christ's sake", "chapter": 2},
+        {"q": "What is Peter's call to holiness?", "a": "'Be holy because I am holy'", "chapter": 1}
+      ]
+    },
+    {
+      "id": 22,
+      "name": "2 Peter",
+      "chapters": 3,
+      "qa": [
+        {"q": "What false teachings did Peter address?", "a": "Denial of Christ's return and immoral behavior", "chapter": 2},
+        {"q": "What does Peter say about false prophets?", "a": "They will infiltrate the church and lead believers astray", "chapter": 2},
+        {"q": "What is Peter's message about Christ's return?", "a": "It is certain but delayed to allow time for repentance", "chapter": 3},
+        {"q": "What does Peter encourage about Scripture?", "a": "All Scripture is given by inspiration of the Holy Spirit", "chapter": 1},
+        {"q": "What is Peter's final exhortation?", "a": "Grow in grace and knowledge of Jesus Christ", "chapter": 3}
+      ]
+    },
+    {
+      "id": 23,
+      "name": "1 John",
+      "chapters": 5,
+      "qa": [
+        {"q": "What is John's main theme?", "a": "God is light and love; believers should live in fellowship with God", "chapter": 1},
+        {"q": "What is the mark of a true Christian?", "a": "Love for other believers and obedience to God's commands", "chapter": 2},
+        {"q": "What false teaching did John combat?", "a": "Gnosticism, which denied Christ came in the flesh", "chapter": 4},
+        {"q": "What is assurance of salvation?", "a": "Believers can have confidence they have eternal life through Christ", "chapter": 5},
+        {"q": "What is 1 John 1:9 about?", "a": "'If we confess our sins, He is faithful to forgive us'", "chapter": 1}
+      ]
+    },
+    {
+      "id": 24,
+      "name": "2 John",
+      "chapters": 1,
+      "qa": [
+        {"q": "What is 2 John about?", "a": "A short letter warning against false teachers and emphasizing love", "chapter": 1},
+        {"q": "Who is the 'chosen lady'?", "a": "Likely either a specific woman or a church personified as a woman", "chapter": 1},
+        {"q": "What does John command?", "a": "Love one another and do not welcome false teachers", "chapter": 1},
+        {"q": "What are the 'antichrists'?", "a": "Those who deny Jesus came in the flesh", "chapter": 1},
+        {"q": "What is John's closing greeting?", "a": "'The children of your sister send their greetings'", "chapter": 1}
+      ]
+    },
+    {
+      "id": 25,
+      "name": "3 John",
+      "chapters": 1,
+      "qa": [
+        {"q": "What is 3 John about?", "a": "John's commendation of Gaius for his hospitality and concern about Diotrephes", "chapter": 1},
+        {"q": "Who was Gaius?", "a": "A believer praised for his support of missionaries", "chapter": 1},
+        {"q": "Who was Diotrephes?", "a": "A church leader who rejected John's authority and refused hospitality", "chapter": 1},
+        {"q": "What does John advocate?", "a": "Support for missionaries and traveling evangelists", "chapter": 1},
+        {"q": "What is John's prayer for Gaius?", "a": "That he prosper in health as his soul prospers", "chapter": 1}
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Jude",
+      "chapters": 1,
+      "qa": [
+        {"q": "What is Jude's main purpose?", "a": "To warn believers against false teachers and ungodly behavior", "chapter": 1},
+        {"q": "What examples does Jude give of judgment?", "a": "Fallen angels, Sodom and Gomorrah, and Korah's rebellion", "chapter": 1},
+        {"q": "What are the characteristics of false teachers?", "a": "They pervert grace into licentiousness and deny Jesus as Lord", "chapter": 1},
+        {"q": "What should believers do?", "a": "Build themselves up in faith, pray, and keep themselves in God's love", "chapter": 1},
+        {"q": "What is Jude's closing doxology?", "a": "Glory to God who is able to keep believers from stumbling", "chapter": 1}
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Revelation",
+      "chapters": 22,
+      "qa": [
+        {"q": "What is Revelation about?", "a": "Visions of the end times and Christ's ultimate victory over evil", "chapter": 1},
+        {"q": "Who is the 'Lamb' in Revelation?", "a": "Jesus Christ, the slain Lamb who takes away sins", "chapter": 5},
+        {"q": "What are the 'seven seals'?", "a": "Seals on a scroll representing judgments in the end times", "chapter": 6},
+        {"q": "What is the 'New Jerusalem'?", "a": "The holy city described as the dwelling place of God with His people", "chapter": 21},
+        {"q": "What is John's final message?", "a": "'Behold, I am coming soon!' And believers should respond 'Amen. Come, Lord Jesus'", "chapter": 22}
+      ]
+    }
+  ]
+}
